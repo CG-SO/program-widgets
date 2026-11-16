@@ -11,7 +11,7 @@
 
   function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
   function safeUrl(u) { return /^https?:\/\//i.test(u || '') ? u : ''; }
-  function postHeight() { try { parent.postMessage({ type: 'cgiar-widget-height', id: P.id, height: Math.ceil(document.documentElement.scrollHeight) }, '*'); } catch (e) {} }
+  function postHeight() { try { parent.postMessage({ type: 'cgiar-widget-height', id: P.id, height: Math.ceil(document.body.getBoundingClientRect().height) }, '*'); } catch (e) {} }
 
   fetch(P.data, { cache: 'no-cache' }).then(function (r) { if (!r.ok) throw new Error(P.data + ' (' + r.status + ')'); return r.json(); })
     .then(build).catch(function (e) { root.innerHTML = '<div class="w-error">Could not load the diagram data: ' + esc(e.message) + '</div>'; postHeight(); });
