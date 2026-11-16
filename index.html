@@ -35,7 +35,7 @@
   function snippet(id, src, title, h) {
     return '<iframe id="' + id + '" src="' + src + '"\n  title="' + title + '" loading="lazy" scrolling="no"\n  style="width:100%; min-height:' + h + 'px; border:0; display:block;"></iframe>\n' +
       '<script>\nwindow.addEventListener(\'message\', function (e) {\n  var f = document.getElementById(\'' + id + '\');\n' +
-      '  if (f && e.source === f.contentWindow && e.data && e.data.type === \'cgiar-widget-height\') f.style.height = e.data.height + \'px\';\n});\n<\/script>';
+      '  if (f && e.source === f.contentWindow && e.data && e.data.type === \'cgiar-widget-height\') { f.style.minHeight = \'0\'; f.style.height = e.data.height + \'px\'; }\n});\n<\/script>';
   }
   function show() {
     var p = sel.value;
@@ -51,7 +51,7 @@
   }
   window.addEventListener('message', function (e) {
     if (!e.data || e.data.type !== 'cgiar-widget-height') return;
-    ['programMap', 'portfolioDiagram', 'programGoals'].forEach(function (id) { var f = document.getElementById(id); if (f && e.source === f.contentWindow) f.style.height = e.data.height + 'px'; });
+    ['programMap', 'portfolioDiagram', 'programGoals'].forEach(function (id) { var f = document.getElementById(id); if (f && e.source === f.contentWindow) { f.style.minHeight = '0'; f.style.height = e.data.height + 'px'; } });
   });
   document.addEventListener('click', function (e) {
     var b = e.target.closest('[data-copy]'); if (!b) return;

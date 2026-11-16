@@ -102,7 +102,7 @@ Use a text format that allows `<iframe>` (the Sustainable Farming page already e
 <script>
 window.addEventListener('message', function (e) {
   var f = document.getElementById('programMap');
-  if (f && e.source === f.contentWindow && e.data && e.data.type === 'cgiar-widget-height') f.style.height = e.data.height + 'px';
+  if (f && e.source === f.contentWindow && e.data && e.data.type === 'cgiar-widget-height') { f.style.minHeight = '0'; f.style.height = e.data.height + 'px'; }
 });
 </script>
 ```
@@ -110,6 +110,7 @@ window.addEventListener('message', function (e) {
 For the diagram, use the same snippet with `portfolio-diagram.html?focus=sustainable-farming&id=portfolioDiagram` and `id="portfolioDiagram"`. For goals, use `program-goals.html?program=sustainable-farming&id=programGoals`, `id="programGoals"` and `min-height:320px`.
 
 - The `e.source` check means two widgets on one page don't resize each other.
+- `min-height` only holds space until the widget loads. The script clears it, so the iframe can shrink to the widget's real height.
 - If the CMS strips `<script>`, drop it and set a fixed height (map 640px, diagram 820px, goals 360px; goals on phones need about 700px).
 
 URL parameters: `program`, `focus`, `id` (must match the iframe id), `panel=0` (map or diagram only, no side panel), `bg=0` (goals without the mint panel), `data` (alternative JSON file).
