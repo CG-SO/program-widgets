@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Convert the "CGIAR program connections" workbook into the two widget data files.
+"""Convert the "CGIAR program connections" workbook into the widget data files.
 
     python3 tools/sheet_to_json.py CGIAR_program_connections.xlsx
 
@@ -9,8 +9,10 @@ Reads these tabs (names must not change):
   Map data        "Says Global" and "Regions (as on the page)"
   Map countries   one row per program + country, with ISO3, Tier and "Keep on map?"
   Map tiers       optional tier labels, descriptions and colours per program
+  Goals           optional "Our goals" figures, one row per figure
 
-Writes data/portfolio.json (diagram) and data/program-maps.json (maps), then prints a report.
+Writes data/portfolio.json (diagram), data/program-maps.json (maps) and
+data/program-goals.json (goals), then prints a report.
 Needs: pip install openpyxl
 """
 import json, re, sys, os, datetime
@@ -134,7 +136,38 @@ def main(path):
         maps['programs'][p['id']] = cfg
 
     maps['countryNames'] = dict(sorted(cnames.items()))
+
+    # Goals ("Our goals" figures). Section title and intro come from the program's first row.
+    goals = {'source': os.path.basename(path), 'programs': {}}
+    if 'Goals' in wb.sheetnames:
+        ws = wb['Goals']
+        rows_by = {}
+        for r in rows(ws, find_header(ws, 'Program / accelerator')):
+            name = txt(r.get('Program / accelerator'))
+            if name not in by_name:
+                if name:
+                    warn.append('Goals: unknown program "%s"' % name)
+                continue
+            rows_by.setdefault(name, []).append(r)
+        for p in progs:
+            rs = sorted(rows_by.get(p['name'], []), key=lambda r: float(r.get('Order') or 0))
+            if not rs:
+                continue
+            items = []
+            for r in rs:
+                it = {'fact': txt(r.get('Figure')), 'headline': txt(r.get('Headline')), 'text': txt(r.get('Text'))}
+                if not (it['fact'] or it['headline'] or it['text']):
+                    continue
+                items.append(it)
+            first = rs[0]
+            goals['programs'][p['id']] = {'title': txt(first.get('Section title')) or 'Our goals', 'intro': txt(first.get('Intro')), 'items': items}
+    for p in progs:
+        if p['id'] not in goals['programs']:
+            warn.append('%s: no goals (the goals widget shows nothing)' % p['name'])
+
     os.makedirs(DATA, exist_ok=True)
+    with open(os.path.join(DATA, 'program-goals.json'), 'w', encoding='utf-8') as f:
+        json.dump(goals, f, ensure_ascii=False, indent=2)
     with open(os.path.join(DATA, 'portfolio.json'), 'w', encoding='utf-8') as f:
         json.dump(portfolio, f, ensure_ascii=False, indent=2)
     with open(os.path.join(DATA, 'program-maps.json'), 'w', encoding='utf-8') as f:
@@ -150,7 +183,7 @@ def main(path):
 
     print('Wrote data/portfolio.json (%d programs) and data/program-maps.json' % len(progs))
     for pid, cfg in maps['programs'].items():
-        print('  %-38s global=%-5s regions=%d countries=%d tiers=%s' % (pid, cfg['global'], len(cfg['regions']), len(cfg['countries']), [len(t['countries']) for t in cfg['tiers']]))
+        print('  %-38s global=%-5s regions=%d countries=%d tiers=%s goals=%d' % (pid, cfg['global'], len(cfg['regions']), len(cfg['countries']), [len(t['countries']) for t in cfg['tiers']], len(goals['programs'].get(pid, {}).get('items', []))))
     if warn:
         print('\nCheck these:')
         for w in warn:

@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>CGIAR program widgets</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700&family=Noto+Serif:wght@400;600&display=swap">
-<link rel="stylesheet" href="assets/widgets.css?v=1">
+<link rel="stylesheet" href="assets/widgets.css?v=2">
 <style>
   body { background: #fafafa; }
   .demo { max-width: 1280px; margin: 0 auto; padding: 32px 24px 64px; display: flex; flex-direction: column; gap: 28px; }
@@ -15,16 +15,18 @@
   select { min-height: 44px; padding: 0 12px; border-radius: 8px; border: 1px solid #a8a8a8; font: 600 15px var(--font-sans); background: #fff; }
   .card { display: flex; flex-direction: column; gap: 12px; padding: 24px; background: #fff; border: 1px solid var(--c-line); border-radius: 8px; }
   iframe { width: 100%; border: 0; display: block; min-height: 520px; }
+  iframe.short { min-height: 0; height: 320px; }
   pre { margin: 0; padding: 14px; background: #f3f5f4; border-radius: 6px; overflow-x: auto; font-size: 12px; line-height: 1.5; white-space: pre; }
   .copy { align-self: flex-start; min-height: 36px; padding: 0 14px; border-radius: 6px; border: 1px solid #a8a8a8; background: #fff; font-weight: 600; cursor: pointer; }
 </style>
 </head>
 <body data-area="light">
 <main class="demo">
-  <div><p class="w-eyebrow">CGIAR · Program pages</p><h1>Program widgets</h1><p class="w-sub">Map and connections diagram for each program page. Pick a program to preview both and copy the embed code.</p></div>
+  <div><p class="w-eyebrow">CGIAR · Program pages</p><h1>Program widgets</h1><p class="w-sub">Map, connections diagram and goals for each program page. Pick a program to preview them and copy the embed code.</p></div>
   <div class="bar"><label for="prog" class="w-label">Program</label><select id="prog"><option value="">Portfolio overview (no focus)</option></select></div>
   <section class="card"><h2>Where we work</h2><iframe id="programMap" title="Program map" loading="lazy" scrolling="no"></iframe><pre id="mapCode"></pre><button class="copy" data-copy="mapCode" type="button">Copy map embed code</button></section>
   <section class="card"><h2>Interlinked support across CGIAR's portfolio</h2><iframe id="portfolioDiagram" title="Program connections diagram" loading="lazy" scrolling="no"></iframe><pre id="diagCode"></pre><button class="copy" data-copy="diagCode" type="button">Copy diagram embed code</button></section>
+  <section class="card"><h2>Our goals</h2><iframe id="programGoals" class="short" title="Program goals" loading="lazy" scrolling="no"></iframe><pre id="goalsCode"></pre><button class="copy" data-copy="goalsCode" type="button">Copy goals embed code</button></section>
 </main>
 <script>
 (function () {
@@ -39,19 +41,22 @@
     var p = sel.value;
     var mapSrc = base + 'program-map.html?program=' + encodeURIComponent(p || 'sustainable-farming') + '&id=programMap';
     var diagSrc = base + 'portfolio-diagram.html?' + (p ? 'focus=' + encodeURIComponent(p) + '&' : '') + 'id=portfolioDiagram';
+    var goalsSrc = base + 'program-goals.html?program=' + encodeURIComponent(p || 'sustainable-farming') + '&id=programGoals';
     document.getElementById('programMap').src = mapSrc;
+    document.getElementById('programGoals').src = goalsSrc;
     document.getElementById('portfolioDiagram').src = diagSrc;
     document.getElementById('mapCode').textContent = snippet('programMap', mapSrc, 'Where we work map', 560);
     document.getElementById('diagCode').textContent = snippet('portfolioDiagram', diagSrc, "Interlinked support across CGIAR's portfolio", 760);
+    document.getElementById('goalsCode').textContent = snippet('programGoals', goalsSrc, 'Our goals', 320);
   }
   window.addEventListener('message', function (e) {
     if (!e.data || e.data.type !== 'cgiar-widget-height') return;
-    ['programMap', 'portfolioDiagram'].forEach(function (id) { var f = document.getElementById(id); if (f && e.source === f.contentWindow) f.style.height = e.data.height + 'px'; });
+    ['programMap', 'portfolioDiagram', 'programGoals'].forEach(function (id) { var f = document.getElementById(id); if (f && e.source === f.contentWindow) f.style.height = e.data.height + 'px'; });
   });
   document.addEventListener('click', function (e) {
     var b = e.target.closest('[data-copy]'); if (!b) return;
     var t = document.getElementById(b.getAttribute('data-copy')).textContent;
-    (navigator.clipboard ? navigator.clipboard.writeText(t) : Promise.reject()).then(function () { b.textContent = 'Copied'; setTimeout(function () { b.textContent = b.getAttribute('data-copy') === 'mapCode' ? 'Copy map embed code' : 'Copy diagram embed code'; }, 1500); }).catch(function () {});
+    (navigator.clipboard ? navigator.clipboard.writeText(t) : Promise.reject()).then(function () { b.textContent = 'Copied'; setTimeout(function () { b.textContent = { mapCode: 'Copy map embed code', diagCode: 'Copy diagram embed code', goalsCode: 'Copy goals embed code' }[b.getAttribute('data-copy')]; }, 1500); }).catch(function () {});
   });
   fetch('data/portfolio.json').then(function (r) { return r.json(); }).then(function (d) {
     d.programs.forEach(function (p) { var o = document.createElement('option'); o.value = p.id; o.textContent = p.name; sel.appendChild(o); });

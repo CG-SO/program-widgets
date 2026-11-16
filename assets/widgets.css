@@ -1,4 +1,4 @@
-/* CGIAR program widgets: shared styles for program-map.html and portfolio-diagram.html.
+/* CGIAR program widgets: shared styles for program-map.html, portfolio-diagram.html and program-goals.html.
    Token names follow the CGIAR design system. An iframe does not inherit the parent page's CSS,
    so this file carries its own small token layer. Colours live here, never in the JavaScript. */
 
@@ -15,6 +15,7 @@
   --c-mint-400: #18f2be;    /* brand bright mint */
   --c-mint-200: #58fbd4;
   --c-mint-50: #e6fff9;
+  --c-divider: rgba(0, 0, 0, 0.2);
   --c-water: #e2eef1;
   --c-land: #ffffff;
   --c-land-line: #c8ccd0;
@@ -130,4 +131,32 @@ a { color: var(--c-green-700); }
   .pd-node { font-size: 10px; line-height: 1.2; max-width: 84px; min-height: 0; padding: 4px 6px; border-width: 1.5px; }
   .pd-node--acc { max-width: 76px; }
   .pd-node--hub { width: 68px; height: 68px; padding: 6px; font-size: 12px; }
+}
+
+/* ===== PROGRAM GOALS ===== */
+/* Matches the "Our goals" facts section on cgiar.org program pages. */
+.pg--panel { background: var(--c-mint-50); padding: 24px 24px 40px; }
+.pg-title { font: 700 13px/1.3 var(--font-sans); letter-spacing: .1em; text-transform: uppercase; color: var(--c-green-700); margin: 0; }
+.pg-intro { font-size: 18px; line-height: 1.5; color: var(--c-ink-soft); margin: 24px 0 0; max-width: 40em; }
+/* The clip hides the divider on the first item of each row. */
+.pg-clip { overflow: hidden; margin-top: 64px; }
+.pg-list { list-style: none; margin: 0 -16px; padding: 0; display: grid; grid-template-columns: 1fr; row-gap: 32px; }
+.pg-item { padding: 0 16px; border-left: 1px solid var(--c-divider); min-width: 0; }
+.pg-item p { margin: 0; }
+.pg-fact { font: 300 clamp(36px, 4.2vw, 48px)/1.2 var(--font-serif); color: var(--c-ink); overflow-wrap: anywhere; }
+.pg-headline { font-weight: 600; font-size: 16px; line-height: 1.3; color: var(--c-ink); margin-top: 20px !important; }
+.pg-text { font-size: 16px; line-height: 1.3; color: var(--c-ink-soft); margin-top: 20px !important; }
+.pg-headline + .pg-text { margin-top: 6px !important; }
+.pg-item--text .pg-text { margin-top: 0 !important; color: var(--c-ink); font-size: 18px; line-height: 1.45; }
+@media (min-width: 560px) {
+  .pg-list--n2, .pg-list--n4 { grid-template-columns: repeat(2, 1fr); }
+  .pg-list--n3 { grid-template-columns: repeat(3, 1fr); }
+}
+@media (min-width: 900px) {
+  .pg-list--n4 { grid-template-columns: repeat(4, 1fr); }
+}
+@media (max-width: 559px) {
+  .pg--panel { padding: 24px 16px 32px; }
+  .pg-intro { margin-top: 16px; }
+  .pg-clip { margin-top: 32px; }
 }

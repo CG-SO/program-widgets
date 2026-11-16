@@ -1,0 +1,272 @@
+{
+  "source": "CGIAR_program_connections.xlsx",
+  "programs": {
+    "breeding-tomorrow": {
+      "title": "Our goal",
+      "intro": "Our work aims to help",
+      "items": [
+        {
+          "fact": "29%",
+          "headline": "Reduction in chronic hunger",
+          "text": ""
+        },
+        {
+          "fact": "21%",
+          "headline": "Reduction in hidden hunger",
+          "text": ""
+        },
+        {
+          "fact": "US$182B",
+          "headline": "In economic surplus generated",
+          "text": ""
+        }
+      ]
+    },
+    "sustainable-farming": {
+      "title": "Our goals",
+      "intro": "Our work will contribute to",
+      "items": [
+        {
+          "fact": "15-30%",
+          "headline": "",
+          "text": "increased agricultural productivity through integrated farm management solutions"
+        },
+        {
+          "fact": "10-15%",
+          "headline": "",
+          "text": "boost in farm profitability for farmers and stakeholders"
+        },
+        {
+          "fact": "15%",
+          "headline": "",
+          "text": "reduction in GHG emissions through climate change adaptation"
+        },
+        {
+          "fact": "20%",
+          "headline": "",
+          "text": "more efficient water and fertilizer use"
+        }
+      ]
+    },
+    "sustainable-animal-and-aquatic-foods": {
+      "title": "Our goal",
+      "intro": "Our work contributes through",
+      "items": [
+        {
+          "fact": "18 bilateral",
+          "headline": "Projects realized",
+          "text": ""
+        },
+        {
+          "fact": "US$84 million",
+          "headline": "unlocked in funding",
+          "text": ""
+        },
+        {
+          "fact": "Over 1 million",
+          "headline": "People impacted",
+          "text": ""
+        }
+      ]
+    },
+    "multifunctional-landscapes": {
+      "title": "Our goal",
+      "intro": "The goal of the Multifunctional Landscapes Science Program is to enable productive, biodiverse, climate-resilient, and socially inclusive landscapes, where progress on food security, climate action, biodiversity, and livelihoods reinforces rather than undermines each other. By 2030, MFL contributes to CGIAR portfolio ambitions to:",
+      "items": [
+        {
+          "fact": "2 million",
+          "headline": "people benefiting from food security",
+          "text": ""
+        },
+        {
+          "fact": "100–150",
+          "headline": "Mt CO₂e sequestered",
+          "text": "through soil organic carbon and biomass"
+        },
+        {
+          "fact": "200–300",
+          "headline": "Mt CO₂e avoided",
+          "text": "through preventing deforestation, degradation, and the drainage of peatlands and wetlands"
+        },
+        {
+          "fact": "Maintain",
+          "headline": "and restore biodiversity",
+          "text": "and semi-natural habitats within productive landscapes"
+        }
+      ]
+    },
+    "climate-action": {
+      "title": "Our goal",
+      "intro": "Our work aims to help",
+      "items": [
+        {
+          "fact": "16 million",
+          "headline": "Smallholder farmers helped",
+          "text": ""
+        },
+        {
+          "fact": "US$15 billion",
+          "headline": "Unlocked in climate finance",
+          "text": ""
+        },
+        {
+          "fact": "1 gigaton",
+          "headline": "CO₂-eq reduction by 2030",
+          "text": ""
+        }
+      ]
+    },
+    "policy-innovations": {
+      "title": "Our goal",
+      "intro": "Our work contributes through",
+      "items": [
+        {
+          "fact": "200+",
+          "headline": "",
+          "text": "policies and investment decisions informed by cutting edge analysis and policy innovation"
+        },
+        {
+          "fact": "50+",
+          "headline": "",
+          "text": "partner institutions worldwide by strengthening their analytical and institutional capabilities through targeted capacity sharing programs"
+        },
+        {
+          "fact": "100+",
+          "headline": "",
+          "text": "million people benefiting from informed large scale policies and investments"
+        }
+      ]
+    },
+    "food-frontiers-and-security": {
+      "title": "Our goal",
+      "intro": "Our work aims to help",
+      "items": [
+        {
+          "fact": "20",
+          "headline": "New policies or investments created",
+          "text": ""
+        },
+        {
+          "fact": "25",
+          "headline": "countries we will build capacity for food systems actors in.",
+          "text": ""
+        },
+        {
+          "fact": "50",
+          "headline": "New food systems innovations we encourage adopting",
+          "text": ""
+        }
+      ]
+    },
+    "better-diets-and-nutrition": {
+      "title": "Our goal",
+      "intro": "Our work aims to help",
+      "items": [
+        {
+          "fact": "",
+          "headline": "",
+          "text": "Making healthy foods affordable for the almost 3 billion people worldwide who currently cannot afford a healthy diet."
+        },
+        {
+          "fact": "",
+          "headline": "",
+          "text": "Promoting diets that are diverse, nutritious and safe to reduce the number of people at risk of all forms of malnutrition and diet linked morbidity and mortality."
+        },
+        {
+          "fact": "",
+          "headline": "",
+          "text": "Supporting actors to take actions that ensure food systems transformation benefits people and the planet."
+        }
+      ]
+    },
+    "capacity-sharing": {
+      "title": "Our goal",
+      "intro": "Our work will contribute to",
+      "items": [
+        {
+          "fact": "",
+          "headline": "",
+          "text": "Co-creation of advanced capacity-sharing science"
+        },
+        {
+          "fact": "",
+          "headline": "",
+          "text": "Enhanced and consistent capacity-sharing between partners"
+        },
+        {
+          "fact": "",
+          "headline": "",
+          "text": "Capacity gap reduction and capacity retention"
+        }
+      ]
+    },
+    "digital-transformation": {
+      "title": "Our goal",
+      "intro": "Our work aims to help",
+      "items": [
+        {
+          "fact": "20+",
+          "headline": "Partners impacted with inclusive data driven management of food-land-water systems",
+          "text": ""
+        },
+        {
+          "fact": "60%",
+          "headline": "Partners encouraged to use AI tools to accelerate innovation",
+          "text": ""
+        },
+        {
+          "fact": "$10m+",
+          "headline": "Investment influenced for digital solutions development",
+          "text": ""
+        }
+      ]
+    },
+    "gender-equality-and-inclusion": {
+      "title": "Our goal",
+      "intro": "Our work aims to help",
+      "items": [
+        {
+          "fact": "",
+          "headline": "",
+          "text": "Generating 12 high-level outputs"
+        },
+        {
+          "fact": "",
+          "headline": "",
+          "text": "Harnessing high-level support and strategic partnerships"
+        },
+        {
+          "fact": "",
+          "headline": "",
+          "text": "Unlocking US$16 million for research and programs"
+        }
+      ]
+    },
+    "genebanks": {
+      "title": "Our goal",
+      "intro": "Our work will contribute to",
+      "items": [
+        {
+          "fact": "",
+          "headline": "",
+          "text": "Providing genetic variation across 3,000+ plant species"
+        },
+        {
+          "fact": "",
+          "headline": "",
+          "text": "Fair distribution of 100,000s of germplasm samples"
+        },
+        {
+          "fact": "",
+          "headline": "",
+          "text": "Helping 10,000s of farmers and millions of consumers"
+        },
+        {
+          "fact": "",
+          "headline": "",
+          "text": "Strengthening the global genebank and plant health systems"
+        }
+      ]
+    }
+  }
+}
