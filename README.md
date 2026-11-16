@@ -89,7 +89,7 @@ The figures from the "Our goals" section of each program page, as a strip of 3 o
 
 - 4 items: 4 columns on desktop, 2 on tablets, 1 on phones. 3 items: 3 columns, then 1.
 - `bg=0` drops the mint panel and padding, for a page section that already has its own background.
-- Scaling for Impact has no goals section on its page, so it has no data and the widget shows a message.
+- Scaling for Impact uses its "Delivering CGIAR's 2030 Impact Goals" section, as text-only items.
 
 ## Embedding in Drupal
 
@@ -115,7 +115,7 @@ For the diagram, use the same snippet with `portfolio-diagram.html?focus=sustain
 
 URL parameters: `program`, `focus`, `id` (must match the iframe id), `panel=0` (map or diagram only, no side panel), `bg=0` (goals without the mint panel), `goals=0` (diagram panel without the goals section), `data` (alternative JSON file).
 
-The diagram panel shows the selected program's "Our goals" section from `data/program-goals.json`, with the same styles as the goals widget. Programs with no goals (Scaling for Impact) show none.
+The diagram panel shows the selected program's "Our goals" section from `data/program-goals.json`, with the same styles as the goals widget. A program with no goals data shows no goals section.
 
 ## Files
 

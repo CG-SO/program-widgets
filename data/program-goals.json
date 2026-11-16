@@ -179,6 +179,32 @@
         }
       ]
     },
+    "scaling-impact": {
+      "title": "Delivering CGIAR's 2030 Impact Goals",
+      "intro": "Scaling for Impact contributes to CGIAR's 2030 Impact Goals by embedding proven innovations into the systems that deliver at scale. By 2030, these efforts will support:",
+      "items": [
+        {
+          "fact": "",
+          "headline": "",
+          "text": "More than 51 million people benefiting from CGIAR innovations"
+        },
+        {
+          "fact": "",
+          "headline": "",
+          "text": "5 million hectares under biodiversity-friendly and climate-smart practices"
+        },
+        {
+          "fact": "",
+          "headline": "",
+          "text": "Improving access to healthier diets for 2 million consumers"
+        },
+        {
+          "fact": "",
+          "headline": "",
+          "text": "Over US$5 billion in aligned public and private investment supporting sustained scaling"
+        }
+      ]
+    },
     "capacity-sharing": {
       "title": "Our goal",
       "intro": "Our work will contribute to",
