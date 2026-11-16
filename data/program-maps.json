@@ -1,0 +1,452 @@
+{
+  "countryNames": {
+    "ARE": "United Arab Emirates",
+    "BDI": "Burundi",
+    "BEN": "Benin",
+    "BFA": "Burkina Faso",
+    "BGD": "Bangladesh",
+    "BOL": "Bolivia",
+    "BRA": "Brazil",
+    "CHN": "China",
+    "CIV": "Côte d'Ivoire",
+    "COD": "Democratic Republic of the Congo",
+    "COL": "Colombia",
+    "EGY": "Egypt",
+    "ETH": "Ethiopia",
+    "GHA": "Ghana",
+    "GTM": "Guatemala",
+    "HND": "Honduras",
+    "IDN": "Indonesia",
+    "IND": "India",
+    "JOR": "Jordan",
+    "KEN": "Kenya",
+    "KHM": "Cambodia",
+    "LAO": "Laos",
+    "LBN": "Lebanon",
+    "LKA": "Sri Lanka",
+    "MAR": "Morocco",
+    "MDG": "Madagascar",
+    "MEX": "Mexico",
+    "MLI": "Mali",
+    "MMR": "Myanmar",
+    "MOZ": "Mozambique",
+    "MWI": "Malawi",
+    "MYS": "Malaysia",
+    "NER": "Niger",
+    "NGA": "Nigeria",
+    "NPL": "Nepal",
+    "PAK": "Pakistan",
+    "PER": "Peru",
+    "PHL": "Philippines",
+    "RWA": "Rwanda",
+    "SDN": "Sudan",
+    "SEN": "Senegal",
+    "SOM": "Somalia",
+    "SYR": "Syria",
+    "THA": "Thailand",
+    "TUN": "Tunisia",
+    "TZA": "Tanzania",
+    "UGA": "Uganda",
+    "UZB": "Uzbekistan",
+    "VNM": "Vietnam",
+    "ZMB": "Zambia",
+    "ZWE": "Zimbabwe"
+  },
+  "defaults": {
+    "ui": {}
+  },
+  "programs": {
+    "breeding-tomorrow": {
+      "header": {
+        "eyebrow": "CGIAR · Breeding for Tomorrow",
+        "title": "Where we work"
+      },
+      "global": false,
+      "regions": [
+        "Central and West Asia and North Africa",
+        "Latin America and the Caribbean",
+        "South and Southeast Asia",
+        "Sub-Saharan Africa"
+      ],
+      "countries": [],
+      "tiers": []
+    },
+    "sustainable-farming": {
+      "header": {
+        "eyebrow": "CGIAR · Sustainable Farming",
+        "title": "Where we work"
+      },
+      "global": true,
+      "regions": [
+        "Eastern Africa",
+        "Southern Asia",
+        "Southern Africa",
+        "South East Asia",
+        "Central and Western Europe and North Africa",
+        "Western Africa"
+      ],
+      "countries": [],
+      "tiers": [
+        {
+          "label": "Tier 1",
+          "description": "Core priorities",
+          "color": "",
+          "countries": [
+            "ETH",
+            "KEN",
+            "MWI",
+            "NGA",
+            "RWA",
+            "BFA",
+            "BDI"
+          ]
+        },
+        {
+          "label": "Tier 2",
+          "description": "Strategic priorities",
+          "color": "",
+          "countries": [
+            "BGD",
+            "EGY",
+            "GHA",
+            "IND",
+            "TZA",
+            "COD",
+            "VNM",
+            "UGA",
+            "ZMB"
+          ]
+        },
+        {
+          "label": "Tier 3",
+          "description": "Emerging priorities",
+          "color": "",
+          "countries": [
+            "MAR",
+            "PHL",
+            "MOZ",
+            "MDG"
+          ]
+        }
+      ]
+    },
+    "sustainable-animal-and-aquatic-foods": {
+      "header": {
+        "eyebrow": "CGIAR · Sustainable Animal and Aquatic Foods",
+        "title": "Where we work"
+      },
+      "global": true,
+      "regions": [
+        "Eastern Africa",
+        "Southeast Asia",
+        "Latin America",
+        "South Asia",
+        "West Africa"
+      ],
+      "countries": [
+        "BGD",
+        "COL",
+        "ETH",
+        "GHA",
+        "IND",
+        "KEN",
+        "MYS",
+        "MLI",
+        "NPL",
+        "NGA",
+        "TZA",
+        "VNM",
+        "UGA"
+      ],
+      "tiers": []
+    },
+    "multifunctional-landscapes": {
+      "header": {
+        "eyebrow": "CGIAR · Multifunctional Landscapes",
+        "title": "Where we work"
+      },
+      "global": true,
+      "regions": [
+        "Eastern Africa",
+        "Latin America",
+        "Northern Africa",
+        "Southern Africa",
+        "South Asia",
+        "Southeast Asia",
+        "Western Africa"
+      ],
+      "countries": [
+        "KHM",
+        "COL",
+        "CIV",
+        "ETH",
+        "IND",
+        "KEN",
+        "LAO",
+        "PER",
+        "SEN",
+        "TZA",
+        "TUN",
+        "ZWE",
+        "VNM"
+      ],
+      "tiers": []
+    },
+    "climate-action": {
+      "header": {
+        "eyebrow": "CGIAR · Climate Action",
+        "title": "Where we work"
+      },
+      "global": false,
+      "regions": [],
+      "countries": [],
+      "tiers": [
+        {
+          "label": "Tier 1",
+          "description": "",
+          "color": "",
+          "countries": [
+            "BGD",
+            "BRA",
+            "CHN",
+            "COL",
+            "EGY",
+            "ETH",
+            "GHA",
+            "IND",
+            "IDN",
+            "KEN",
+            "MLI",
+            "MMR",
+            "NER",
+            "NGA",
+            "PAK",
+            "PHL",
+            "SDN",
+            "TZA",
+            "UGA",
+            "VNM"
+          ]
+        },
+        {
+          "label": "Tier 2",
+          "description": "",
+          "color": "",
+          "countries": [
+            "KHM",
+            "GTM",
+            "HND",
+            "SEN",
+            "LKA",
+            "ZMB"
+          ]
+        }
+      ]
+    },
+    "policy-innovations": {
+      "header": {
+        "eyebrow": "CGIAR · Policy Innovations",
+        "title": "Where we work"
+      },
+      "global": true,
+      "regions": [
+        "Eastern Africa",
+        "Western Africa"
+      ],
+      "countries": [
+        "BGD",
+        "BRA",
+        "CIV",
+        "EGY",
+        "ETH",
+        "GHA",
+        "IND",
+        "KEN",
+        "MWI",
+        "MYS",
+        "NPL",
+        "NGA",
+        "PAK",
+        "RWA",
+        "SEN",
+        "LKA",
+        "SYR",
+        "TZA",
+        "VNM",
+        "UGA"
+      ],
+      "tiers": []
+    },
+    "food-frontiers-and-security": {
+      "header": {
+        "eyebrow": "CGIAR · Food Frontiers and Security",
+        "title": "Where we work"
+      },
+      "global": true,
+      "regions": [
+        "Africa",
+        "Asia",
+        "Oceania"
+      ],
+      "countries": [
+        "ETH",
+        "KEN"
+      ],
+      "tiers": []
+    },
+    "better-diets-and-nutrition": {
+      "header": {
+        "eyebrow": "CGIAR · Better Diets and Nutrition",
+        "title": "Where we work"
+      },
+      "global": true,
+      "regions": [
+        "Latin America and the Caribbean",
+        "Southern Asia",
+        "Southeast Asia",
+        "Sub-Saharan Africa"
+      ],
+      "countries": [
+        "BGD",
+        "BEN",
+        "ETH",
+        "GHA",
+        "GTM",
+        "HND",
+        "IND",
+        "KEN",
+        "NGA",
+        "PHL",
+        "LKA",
+        "TZA",
+        "VNM",
+        "UGA"
+      ],
+      "tiers": []
+    },
+    "scaling-impact": {
+      "header": {
+        "eyebrow": "CGIAR · Scaling for Impact",
+        "title": "Where we work"
+      },
+      "global": true,
+      "regions": [],
+      "countries": [
+        "BGD",
+        "KHM",
+        "COL",
+        "CIV",
+        "COD",
+        "EGY",
+        "ETH",
+        "GTM",
+        "IND",
+        "KEN",
+        "MWI",
+        "MEX",
+        "MAR",
+        "NPL",
+        "NGA",
+        "PHL",
+        "TZA",
+        "UZB",
+        "VNM",
+        "ZMB"
+      ],
+      "tiers": []
+    },
+    "capacity-sharing": {
+      "header": {
+        "eyebrow": "CGIAR · Capacity Sharing",
+        "title": "Where we work"
+      },
+      "global": true,
+      "regions": [],
+      "countries": [],
+      "tiers": []
+    },
+    "digital-transformation": {
+      "header": {
+        "eyebrow": "CGIAR · Digital Transformation",
+        "title": "Where we work"
+      },
+      "global": true,
+      "regions": [
+        "Africa",
+        "Asia",
+        "Eastern Africa",
+        "Latin America and the Caribbean"
+      ],
+      "countries": [
+        "BGD",
+        "BRA",
+        "COL",
+        "CIV",
+        "EGY",
+        "ETH",
+        "GTM",
+        "IND",
+        "IDN",
+        "KEN",
+        "PHL",
+        "THA",
+        "ARE",
+        "VNM"
+      ],
+      "tiers": []
+    },
+    "gender-equality-and-inclusion": {
+      "header": {
+        "eyebrow": "CGIAR · Gender Equality and Inclusion",
+        "title": "Where we work"
+      },
+      "global": true,
+      "regions": [
+        "Africa",
+        "Asia",
+        "Latin America and the Caribbean"
+      ],
+      "countries": [
+        "BGD",
+        "BOL",
+        "KHM",
+        "COL",
+        "EGY",
+        "ETH",
+        "GHA",
+        "GTM",
+        "HND",
+        "IND",
+        "JOR",
+        "KEN",
+        "LBN",
+        "MDG",
+        "MLI",
+        "MAR",
+        "MOZ",
+        "NER",
+        "NGA",
+        "PER",
+        "PHL",
+        "RWA",
+        "SOM",
+        "TZA",
+        "TUN",
+        "UGA",
+        "ZMB",
+        "ZWE"
+      ],
+      "tiers": []
+    },
+    "genebanks": {
+      "header": {
+        "eyebrow": "CGIAR · Genebanks",
+        "title": "Where we work"
+      },
+      "global": true,
+      "regions": [],
+      "countries": [],
+      "tiers": []
+    }
+  }
+}

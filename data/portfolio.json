@@ -1,0 +1,222 @@
+{
+  "title": "Interlinked support across CGIAR's portfolio",
+  "hub": {
+    "label": "CGIAR Research Portfolio"
+  },
+  "updated": "2026-11-16",
+  "source": "CGIAR_program_connections.xlsx",
+  "programs": [
+    {
+      "id": "breeding-tomorrow",
+      "name": "Breeding for Tomorrow",
+      "type": "science",
+      "url": "https://www.cgiar.org/cgiar-research-portfolio-2025-2030/breeding-tomorrow",
+      "desc": "Develops climate-resilient, nutritious crops and livestock for more productive, inclusive food systems."
+    },
+    {
+      "id": "sustainable-farming",
+      "name": "Sustainable Farming",
+      "type": "science",
+      "url": "https://www.cgiar.org/cgiar-research-portfolio-2025-2030/sustainable-farming",
+      "desc": "Boosts nutritious food production while protecting the environment."
+    },
+    {
+      "id": "sustainable-animal-and-aquatic-foods",
+      "name": "Sustainable Animal and Aquatic Foods",
+      "type": "science",
+      "url": "https://www.cgiar.org/cgiar-research-portfolio-2025-2030/sustainable-animal-and-aquatic-foods",
+      "desc": "Combines livestock and aquatic systems to improve nutrition, cut emissions and fit local contexts."
+    },
+    {
+      "id": "multifunctional-landscapes",
+      "name": "Multifunctional Landscapes",
+      "type": "science",
+      "url": "https://www.cgiar.org/cgiar-research-portfolio-2025-2030/multifunctional-landscapes",
+      "desc": "Healthy, diverse landscapes that support food systems, livelihoods and diets within planetary limits."
+    },
+    {
+      "id": "climate-action",
+      "name": "Climate Action",
+      "type": "science",
+      "url": "https://www.cgiar.org/cgiar-research-portfolio-2025-2030/climate-action",
+      "desc": "Makes food, land and water systems resilient, net-zero and equitable."
+    },
+    {
+      "id": "policy-innovations",
+      "name": "Policy Innovations",
+      "type": "science",
+      "url": "https://www.cgiar.org/cgiar-research-portfolio-2025-2030/policy-innovations",
+      "desc": "Evidence-based recommendations to strengthen policies, markets and institutions."
+    },
+    {
+      "id": "food-frontiers-and-security",
+      "name": "Food Frontiers and Security",
+      "type": "science",
+      "url": "https://www.cgiar.org/cgiar-research-portfolio-2025-2030/food-frontiers-and-security",
+      "desc": "Focuses on fragile and conflict-affected, urban and peri-urban, and island food systems."
+    },
+    {
+      "id": "better-diets-and-nutrition",
+      "name": "Better Diets and Nutrition",
+      "type": "science",
+      "url": "https://www.cgiar.org/cgiar-research-portfolio-2025-2030/better-diets-and-nutrition",
+      "desc": "Co-designs and tests food system solutions for better diets and nutrition."
+    },
+    {
+      "id": "scaling-impact",
+      "name": "Scaling for Impact",
+      "type": "scaling",
+      "url": "https://www.cgiar.org/cgiar-research-portfolio-2025-2030/scaling-impact",
+      "desc": "Tackles poverty, hunger and climate risk through science, partnerships and integrated solutions."
+    },
+    {
+      "id": "capacity-sharing",
+      "name": "Capacity Sharing",
+      "type": "accelerator",
+      "url": "https://www.cgiar.org/cgiar-research-portfolio-2025-2030/capacity-sharing",
+      "desc": "Builds equal partnerships that share skills across food, land and water systems."
+    },
+    {
+      "id": "digital-transformation",
+      "name": "Digital Transformation",
+      "type": "accelerator",
+      "url": "https://www.cgiar.org/cgiar-research-portfolio-2025-2030/digital-transformation",
+      "desc": "Co-creates inclusive AI, data and digital solutions for decisions, policy and investment."
+    },
+    {
+      "id": "gender-equality-and-inclusion",
+      "name": "Gender Equality and Inclusion",
+      "type": "accelerator",
+      "url": "https://www.cgiar.org/cgiar-research-portfolio-2025-2030/gender-equality-and-inclusion",
+      "desc": "Leads research on gender equality, youth opportunities and inclusion."
+    },
+    {
+      "id": "genebanks",
+      "name": "Genebanks",
+      "type": "accelerator",
+      "url": "https://www.cgiar.org/cgiar-research-portfolio-2025-2030/genebanks",
+      "desc": "Conserves and gives access to 700,000+ crop accessions for resilient farming."
+    }
+  ],
+  "connections": {
+    "breeding-tomorrow": [
+      "sustainable-farming",
+      "sustainable-animal-and-aquatic-foods",
+      "climate-action",
+      "policy-innovations",
+      "better-diets-and-nutrition",
+      "scaling-impact",
+      "capacity-sharing",
+      "digital-transformation",
+      "gender-equality-and-inclusion",
+      "genebanks"
+    ],
+    "sustainable-farming": [
+      "breeding-tomorrow",
+      "sustainable-animal-and-aquatic-foods",
+      "multifunctional-landscapes",
+      "climate-action",
+      "policy-innovations",
+      "better-diets-and-nutrition",
+      "scaling-impact",
+      "capacity-sharing",
+      "digital-transformation",
+      "gender-equality-and-inclusion",
+      "genebanks"
+    ],
+    "sustainable-animal-and-aquatic-foods": [
+      "breeding-tomorrow",
+      "sustainable-farming",
+      "multifunctional-landscapes",
+      "climate-action",
+      "policy-innovations",
+      "better-diets-and-nutrition",
+      "scaling-impact",
+      "capacity-sharing",
+      "digital-transformation",
+      "gender-equality-and-inclusion"
+    ],
+    "multifunctional-landscapes": [],
+    "climate-action": [
+      "breeding-tomorrow",
+      "sustainable-farming",
+      "sustainable-animal-and-aquatic-foods",
+      "multifunctional-landscapes",
+      "policy-innovations",
+      "food-frontiers-and-security",
+      "better-diets-and-nutrition",
+      "scaling-impact",
+      "capacity-sharing",
+      "digital-transformation",
+      "gender-equality-and-inclusion",
+      "genebanks"
+    ],
+    "policy-innovations": [
+      "breeding-tomorrow",
+      "sustainable-farming",
+      "sustainable-animal-and-aquatic-foods",
+      "better-diets-and-nutrition",
+      "scaling-impact",
+      "digital-transformation",
+      "gender-equality-and-inclusion"
+    ],
+    "food-frontiers-and-security": [
+      "multifunctional-landscapes",
+      "climate-action",
+      "policy-innovations",
+      "better-diets-and-nutrition",
+      "scaling-impact",
+      "capacity-sharing",
+      "digital-transformation",
+      "gender-equality-and-inclusion"
+    ],
+    "better-diets-and-nutrition": [
+      "breeding-tomorrow",
+      "sustainable-farming",
+      "sustainable-animal-and-aquatic-foods",
+      "policy-innovations",
+      "scaling-impact",
+      "capacity-sharing",
+      "gender-equality-and-inclusion"
+    ],
+    "scaling-impact": [
+      "breeding-tomorrow",
+      "sustainable-farming",
+      "sustainable-animal-and-aquatic-foods",
+      "multifunctional-landscapes",
+      "climate-action",
+      "policy-innovations",
+      "food-frontiers-and-security",
+      "better-diets-and-nutrition",
+      "capacity-sharing",
+      "digital-transformation",
+      "gender-equality-and-inclusion"
+    ],
+    "capacity-sharing": [],
+    "digital-transformation": [
+      "breeding-tomorrow",
+      "sustainable-farming",
+      "sustainable-animal-and-aquatic-foods",
+      "multifunctional-landscapes",
+      "climate-action",
+      "better-diets-and-nutrition",
+      "capacity-sharing",
+      "gender-equality-and-inclusion"
+    ],
+    "gender-equality-and-inclusion": [
+      "breeding-tomorrow",
+      "sustainable-animal-and-aquatic-foods",
+      "multifunctional-landscapes",
+      "climate-action",
+      "policy-innovations",
+      "food-frontiers-and-security",
+      "better-diets-and-nutrition",
+      "scaling-impact"
+    ],
+    "genebanks": [
+      "breeding-tomorrow",
+      "multifunctional-landscapes",
+      "digital-transformation"
+    ]
+  }
+}
