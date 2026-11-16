@@ -106,18 +106,15 @@
       if (focus && S.sel !== focus) h += '<button type="button" class="pd-btn" data-id="' + esc(focus) + '" style="align-self:flex-start">Back to ' + esc(byId[focus].name) + '</button>';
       return h;
     }
-    // Same markup as the "Our goals" widget (program-goals.js), so the section looks identical.
+    // Compact "Our goals" box: one line per goal, figure in serif followed by its text.
     function goals(id) {
       var g = G[id]; if (!g || !g.items || !g.items.length) return '';
-      return '<div class="pg pd-goals"><p class="pg-title">' + esc(g.title || 'Our goals') + '</p>' +
-        (g.intro ? '<p class="pg-intro">' + esc(g.intro) + '</p>' : '') +
-        '<div class="pg-clip"><ul class="pg-list">' +
-        g.items.map(function (it) {
-          return '<li class="pg-item' + (it.fact ? '' : ' pg-item--text') + '">' +
-            (it.fact ? '<p class="pg-fact">' + esc(it.fact) + '</p>' : '') +
-            (it.headline ? '<p class="pg-headline">' + esc(it.headline) + '</p>' : '') +
-            (it.text ? '<p class="pg-text">' + esc(it.text) + '</p>' : '') + '</li>';
-        }).join('') + '</ul></div></div>';
+      return '<div class="pd-goals"><p class="w-eyebrow">' + esc(g.title || 'Our goals') + '</p>' +
+        (g.intro ? '<p class="pd-goals-intro">' + esc(g.intro) + '</p>' : '') +
+        '<ul class="pd-goals-list">' + g.items.map(function (it) {
+          var rest = [it.headline, it.text].filter(Boolean).map(esc).join(' ');
+          return '<li>' + (it.fact ? '<span class="pd-goals-fact">' + esc(it.fact) + '</span> ' : '') + rest + '</li>';
+        }).join('') + '</ul></div>';
     }
     function summary() {
       return esc(D.title || 'Program connections') + '. ' + D.programs.map(function (p) {

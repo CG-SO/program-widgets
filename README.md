@@ -115,7 +115,7 @@ For the diagram, use the same snippet with `portfolio-diagram.html?focus=sustain
 
 URL parameters: `program`, `focus`, `id` (must match the iframe id), `panel=0` (map or diagram only, no side panel), `bg=0` (goals without the mint panel), `goals=0` (diagram panel without the goals section), `data` (alternative JSON file).
 
-The diagram panel shows the selected program's "Our goals" section from `data/program-goals.json`, with the same styles as the goals widget. A program with no goals data shows no goals section.
+The diagram panel shows the selected program's "Our goals" section from `data/program-goals.json`, as a compact box (one line per goal). A program with no goals data shows no goals section.
 
 ## Files
 
