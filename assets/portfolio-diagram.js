@@ -1,10 +1,11 @@
 /* CGIAR portfolio connections diagram.
    URL parameters: focus=<program id> (program page view, that program in the centre),
-   data=<path> (default data/portfolio.json), id=<iframe id for height messages>, panel=0 (diagram only). */
+   data=<path> (default data/portfolio.json), id=<iframe id for height messages>, panel=0 (diagram only),
+   goals=<path> (default data/program-goals.json; goals=0 hides goals in the panel). */
 (function () {
   'use strict';
   var qs = new URLSearchParams(location.search);
-  var P = { focus: qs.get('focus') || '', data: qs.get('data') || 'data/portfolio.json', id: qs.get('id') || 'portfolioDiagram', panel: qs.get('panel') !== '0' };
+  var P = { focus: qs.get('focus') || '', data: qs.get('data') || 'data/portfolio.json', id: qs.get('id') || 'portfolioDiagram', panel: qs.get('panel') !== '0', goals: qs.get('goals') || 'data/program-goals.json' };
   var root = document.getElementById('pd');
   var C = 500, R_OUT = 380, R_IN = 215;
   var TYPE = { science: 'Science Program', scaling: 'Scaling Program', accelerator: 'Accelerator' };
@@ -13,10 +14,12 @@
   function safeUrl(u) { return /^https?:\/\//i.test(u || '') ? u : ''; }
   function postHeight() { try { parent.postMessage({ type: 'cgiar-widget-height', id: P.id, height: Math.ceil(document.body.getBoundingClientRect().height) }, '*'); } catch (e) {} }
 
-  fetch(P.data, { cache: 'no-cache' }).then(function (r) { if (!r.ok) throw new Error(P.data + ' (' + r.status + ')'); return r.json(); })
-    .then(build).catch(function (e) { root.innerHTML = '<div class="w-error">Could not load the diagram data: ' + esc(e.message) + '</div>'; postHeight(); });
+  // Goals are optional: if the file is missing the panel simply shows no goals.
+  var goalsReq = (P.panel && P.goals !== '0') ? fetch(P.goals, { cache: 'no-cache' }).then(function (r) { return r.ok ? r.json() : {}; }).catch(function () { return {}; }) : Promise.resolve({});
+  Promise.all([fetch(P.data, { cache: 'no-cache' }).then(function (r) { if (!r.ok) throw new Error(P.data + ' (' + r.status + ')'); return r.json(); }), goalsReq])
+    .then(function (res) { build(res[0], (res[1] && res[1].programs) || {}); }).catch(function (e) { root.innerHTML = '<div class="w-error">Could not load the diagram data: ' + esc(e.message) + '</div>'; postHeight(); });
 
-  function build(D) {
+  function build(D, G) {
     var byId = {}; D.programs.forEach(function (p) { byId[p.id] = p; });
     var focus = byId[P.focus] ? P.focus : '';
     if (P.focus && !focus) console.warn('[portfolio-diagram] Unknown focus "' + P.focus + '".');
@@ -94,7 +97,7 @@
       var pr = ids.filter(function (x) { return byId[x].type !== 'accelerator'; }), ac = ids.filter(function (x) { return byId[x].type === 'accelerator'; });
       var chips = function (arr) { return '<ul class="pd-links">' + arr.map(function (x) { return '<li><button type="button" class="pd-link" data-id="' + esc(x) + '">' + esc(byId[x].name) + '</button></li>'; }).join('') + '</ul>'; };
       var h = '<span class="pd-badge' + (p.type === 'scaling' ? ' pd-badge--scaling' : p.type === 'accelerator' ? ' pd-badge--acc' : '') + '">' + esc(TYPE[p.type] || '') + '</span>' +
-        '<h2 class="pd-name">' + esc(p.name) + '</h2>' + (p.desc ? '<p class="pd-desc">' + esc(p.desc) + '</p>' : '') +
+        '<h2 class="pd-name">' + esc(p.name) + '</h2>' + (p.desc ? '<p class="pd-desc">' + esc(p.desc) + '</p>' : '') + goals(p.id) +
         '<div style="display:flex;flex-direction:column;gap:10px;padding-top:14px;border-top:1px solid var(--c-line)"><p class="w-eyebrow">' + esc(S.sel === focus ? ((D.labels && D.labels.focus) || 'We closely work with') : 'Connected to ' + ids.length) + '</p>' +
         (pr.length ? '<p class="w-label" style="color:var(--c-ink-muted)">Programs</p>' + chips(pr) : '') +
         (ac.length ? '<p class="w-label" style="color:var(--c-ink-muted)">Accelerators</p>' + chips(ac) : '') +
@@ -102,6 +105,19 @@
       if (S.sel !== focus && safeUrl(p.url)) h += '<a class="pd-cta" href="' + esc(p.url) + '" target="_top">Explore this ' + (p.type === 'accelerator' ? 'accelerator' : 'program') + '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 12h17M14 6l6 6-6 6"/></svg></a>';
       if (focus && S.sel !== focus) h += '<button type="button" class="pd-btn" data-id="' + esc(focus) + '" style="align-self:flex-start">Back to ' + esc(byId[focus].name) + '</button>';
       return h;
+    }
+    // Same markup as the "Our goals" widget (program-goals.js), so the section looks identical.
+    function goals(id) {
+      var g = G[id]; if (!g || !g.items || !g.items.length) return '';
+      return '<div class="pg pd-goals"><p class="pg-title">' + esc(g.title || 'Our goals') + '</p>' +
+        (g.intro ? '<p class="pg-intro">' + esc(g.intro) + '</p>' : '') +
+        '<div class="pg-clip"><ul class="pg-list">' +
+        g.items.map(function (it) {
+          return '<li class="pg-item' + (it.fact ? '' : ' pg-item--text') + '">' +
+            (it.fact ? '<p class="pg-fact">' + esc(it.fact) + '</p>' : '') +
+            (it.headline ? '<p class="pg-headline">' + esc(it.headline) + '</p>' : '') +
+            (it.text ? '<p class="pg-text">' + esc(it.text) + '</p>' : '') + '</li>';
+        }).join('') + '</ul></div></div>';
     }
     function summary() {
       return esc(D.title || 'Program connections') + '. ' + D.programs.map(function (p) {

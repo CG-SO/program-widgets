@@ -113,7 +113,9 @@ For the diagram, use the same snippet with `portfolio-diagram.html?focus=sustain
 - `min-height` only holds space until the widget loads. The script clears it, so the iframe can shrink to the widget's real height.
 - If the CMS strips `<script>`, drop it and set a fixed height (map 640px, diagram 820px, goals 360px; goals on phones need about 700px).
 
-URL parameters: `program`, `focus`, `id` (must match the iframe id), `panel=0` (map or diagram only, no side panel), `bg=0` (goals without the mint panel), `data` (alternative JSON file).
+URL parameters: `program`, `focus`, `id` (must match the iframe id), `panel=0` (map or diagram only, no side panel), `bg=0` (goals without the mint panel), `goals=0` (diagram panel without the goals section), `data` (alternative JSON file).
+
+The diagram panel shows the selected program's "Our goals" section from `data/program-goals.json`, with the same styles as the goals widget. Programs with no goals (Scaling for Impact) show none.
 
 ## Files
 
